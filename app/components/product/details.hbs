@@ -18,4 +18,13 @@
             <i class="pricedown"> $99.98 </i>
         </section>
 
+        {{!--Colors--}}
+        <h5> Color </h5>
+        <div class="product-colors active-{{@color}}">
+            <button type="button" class="product-color color-red"
+            {{on "click" (fn @onChangeColor "red")}}></button>
+            <button type="button" class="product-color color-black"
+            {{on "click" (fn @onChangeColor "black")}}></button>
+        </div>
+
     </div>

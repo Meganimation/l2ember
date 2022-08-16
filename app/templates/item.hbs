@@ -2,10 +2,10 @@
 <GeneralContainer>
             <LinkTo @route="index"> back</LinkTo>
     <div class="product item-details-page">
-        <Product::Image />
-        <Product::Details />
+        <Product::Image @src={{this.productImage}}/>
+        <Product::Details @color={{this.color}} @onChangeColor={{this.onChangeColor}}/>
     </div>
-    <h5> Features</h5>
+    <h5> Features </h5>
     <ul>
         <li> High Performance</li>
         <li> Cute Red Color</li>
