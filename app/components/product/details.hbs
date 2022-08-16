@@ -3,7 +3,7 @@
         {{!-- {{yield}} --}}
         {{!--Header--}}
         <section>
-            <h3> Beats Solo Wireless Headphones</h3>
+            <h3> {{@name}}</h3>
             <div class="text-warning">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -14,17 +14,18 @@
         </section>
         {{!--Price--}}
         <section>
-            <del class="originalprice"> $199.95</del>
-            <i class="pricedown"> $99.98 </i>
+            <del class="originalprice"> ${{@price.original}}</del>
+            <i class="pricedown"> ${{@price.current}} </i>
         </section>
 
         {{!--Colors--}}
         <h5> Color </h5>
         <div class="product-colors active-{{@color}}">
-            <button type="button" class="product-color color-red"
-            {{on "click" (fn @onChangeColor "red")}}></button>
-            <button type="button" class="product-color color-black"
-            {{on "click" (fn @onChangeColor "black")}}></button>
+            {{#each @colors as |colorInfo|}}
+                <button type="button" class="product-color {{concat 'color-' colorInfo.color}}"
+                {{on "click" (fn @onChangeColor colorInfo.color)}}>             
+                </button>
+            {{/each}}
         </div>
 
     </div>
