@@ -13,12 +13,13 @@
             </div>
         </section>
         {{!--Price--}}
-        <section>
-            <del class="originalprice"> ${{@price.original}}</del>
-            <i class="pricedown"> ${{@price.current}} </i>
+        <section class={{unless @isDetails 'h4'}}>
+            <del class="originalprice"> {{currency @price.original}}</del>
+            <i class="pricedown"> {{currency @price.current}} </i>
         </section>
 
         {{!--Colors--}}
+        {{#if @isDetails}}
         <h5> Color </h5>
         <div class="product-colors active-{{@color}}">
             {{#each @colors as |colorInfo|}}
@@ -27,5 +28,6 @@
                 </button>
             {{/each}}
         </div>
+        {{/if}}
 
     </div>

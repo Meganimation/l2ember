@@ -1,4 +1,5 @@
 {{!-- {{yield}} --}}
-    <div class="product-image">
+    {{!-- template-lint-disable no-invalid-interactive --}}
+    <div class="product-image" {{on "click" @toggleZoom}}>
         <img src={{@src}} alt="beats headphones" />
     </div>
