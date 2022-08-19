@@ -1,7 +1,7 @@
 {{page-title "Cart"}}
 
 <main class="container mt-5">
-    <h1> Shopping Cart</h1>
+    <h1> Shopping Cart </h1>
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <LinkTo @route="index">Home</LinkTo>
@@ -10,9 +10,23 @@
     </ol>
 
     {{#each this.cart.itemList as |item|}}
+    <div class="cart-item">
+        <div class="cart-item-thumbnail">
+            <img src={{item.image}} alt="Item in cart" />
+        </div>
         <div>
             <h4>{{item.name}}</h4>
+            <b>{{currency item.price}}</b>
         </div>
+        <label> Amount:
+            <input type="number" 
+            value={{item.count}}
+             {{on "input" (fn this.updateItemCount item)}}
+             /></label>
+        <div>
+
+        </div>
+    </div>
     {{/each}}
     <section class="total-amount-container">
         <div class="row">
